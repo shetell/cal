@@ -2,19 +2,27 @@
 <html>
 <head>
 <meta charset="utf-8">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 <title>Calculator</title>
+<style>
+    .main{
+        transform: scale(4);
+        transform-origin: 0 0;
+    }
+</style>
 </head>
 <body>
-    <div>n &nbsp = &nbsp <input id="n" type="number" style="width:60px;"></div>
-    <div>r &nbsp&nbsp = &nbsp <input id="r" type="number" style="width:60px;"></div>
-    <div><button onclick="calculate()">计算</button></div>
-    <div id="P">排列&nbsp: &nbsp</div>
-    <div id="C">组合&nbsp: &nbsp</div>
+    <div class="main">
+        <div>n &nbsp = &nbsp <input id="n" type="number" style="width:60px;">&nbsp<button onclick="delete_n()">删除</button></div>
+        <div>r &nbsp&nbsp = &nbsp <input id="r" type="number" style="width:60px;">&nbsp<button onclick="delete_r()">删除</button></div>
+        <div><button onclick="calculate()">计算</button></div>
+        <div id="P">排列&nbsp: &nbsp</div>
+        <div id="C">组合&nbsp: &nbsp</div>
+    </div>
 </body>
 <script>
-    var n=document.getElementById("n").value;
-    var r=document.getElementById("r").value;
+    var N=document.getElementById("n");
+    var R=document.getElementById("r");
     var P=document.getElementById("P");
     var C=document.getElementById("C");
     var p = 0;
@@ -26,12 +34,20 @@
     }
 
     function calculate(){
-        n=document.getElementById("n").value;
-        r=document.getElementById("r").value;
+        var n=document.getElementById("n").value;
+        var r=document.getElementById("r").value;
         p = factorial(n)/factorial(n-r);
         c = factorial(n)/(factorial(n-r) * factorial(r));
         P.innerText+=p;
         C.innerText+=c;
+    }
+
+    function delete_n(){
+        N.value = '';
+    }
+
+    function delete_r(){
+        R.value = '';
     }
 </script> 
 </html>
