@@ -25,6 +25,8 @@
     var R=document.getElementById("r");
     var P=document.getElementById("P");
     var C=document.getElementById("C");
+    var origin_p = P.innerText;
+    var origin_c = C.innerText;
     var p = 0;
     var c = 0;
 
@@ -38,6 +40,8 @@
         var r=document.getElementById("r").value;
         p = factorial(n)/factorial(n-r);
         c = factorial(n)/(factorial(n-r) * factorial(r));
+        P.innerText = origin_p;
+        C.innerText = origin_c;
         P.innerText+=p;
         C.innerText+=c;
     }
