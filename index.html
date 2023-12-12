@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Calculator</title>
+</head>
+<body>
+    <div>n &nbsp = &nbsp <input id="n" type="number" style="width:60px;"></div>
+    <div>r &nbsp&nbsp = &nbsp <input id="r" type="number" style="width:60px;"></div>
+    <div><button onclick="calculate()">计算</button></div>
+    <div id="P">排列&nbsp: &nbsp</div>
+    <div id="C">组合&nbsp: &nbsp</div>
+</body>
+<script>
+    var n=document.getElementById("n").value;
+    var r=document.getElementById("r").value;
+    var P=document.getElementById("P");
+    var C=document.getElementById("C");
+    var p = 0;
+    var c = 0;
+
+    function factorial(x){
+       if(x == 1)return x;
+        return x * factorial(x-1);
+    }
+
+    function calculate(){
+        n=document.getElementById("n").value;
+        r=document.getElementById("r").value;
+        p = factorial(n)/factorial(n-r);
+        c = factorial(n)/(factorial(n-r) * factorial(r));
+        P.innerText+=p;
+        C.innerText+=c;
+    }
+</script> 
+</html>
